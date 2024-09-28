@@ -1,0 +1,19 @@
+.header{
+    background-color: #2E1D55;
+}
+
+.logoText{
+    color: white;
+}
+
+.logoWrap{
+    width: 115px;
+    height: 48px;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+
+    
+}

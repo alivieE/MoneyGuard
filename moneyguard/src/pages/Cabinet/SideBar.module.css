@@ -1,0 +1,28 @@
+.balanceValue{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.text{
+    color: white; 
+    opacity: 0.6; 
+}
+
+.balance{
+    background-color: #523B7E;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+}
+
+.homeLink{
+    display: flex;
+}
+
+.link{
+    display: flex;
+    align-items: center;
+    background-color: green;
+}

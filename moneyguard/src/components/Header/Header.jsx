@@ -4,7 +4,7 @@ import s from './Header.module.css';
 
 const Header = () => {
   return (
-    <div className={s.header}>
+    <header className={s.header}>
       <div className={s.logoWrap}>
         <div className={s.logo}>
           <img className={s.img} src={Image.logo} alt='logo' />
@@ -17,7 +17,7 @@ const Header = () => {
           <img className={s.vector} src={Image.vector} alt='vector' />
           <p className={s.exit}>Exit</p>
         </div>
-    </div>
+    </header>
   );
 };
 

@@ -1,24 +1,47 @@
-import React from 'react'
-import s from './SideBar.module.css'
-import { NavLink } from 'react-router-dom'
-import Image from '../../assets/index'
+import React, { useState } from "react";
+import s from "./SideBar.module.css";
+import { NavLink } from "react-router-dom";
+import Image from "../../assets/index";
 
 const SideBar = () => {
+  const [page, setPage] = useState("home");
   return (
     <div>
-        <div className={s.links}>
-            <div className={s.homeLink}>
-                <NavLink className={s.link} to='home'><img className={s.homeImage} src={Image.home}></img>Home</NavLink>
+      <div className={s.links}>
+        <div className={s.homeLink}>
+          <NavLink
+            onClick={() => {
+              setPage("home");
+            }}
+            className={s.link}
+            to="home"
+          >
+            <div className="activeWrap">
+              <img className={s.homeImage} src={page==='home'? Image.homeWhite:Image.home }></img>
             </div>
-            <div></div>
-            <NavLink className={s.link}to='statistic'><img className={s.statisticImage} src={Image.statistic}></img>Statistic</NavLink>
+            Home
+          </NavLink>
         </div>
+        <div></div>
+        <NavLink
+          onClick={() => {
+            setPage("statistic");
+          }}
+          className={s.link}
+          to="statistic"
+        >
+          <div className="activeWrap">
+            <img className={s.statisticImage} src={page==='statistic'?Image.statisticWhite:Image.statistic}></img>
+          </div>
+          Statistic
+        </NavLink>
+      </div>
       <div className={s.balance}>
         <p className={s.text}>YOUR BALANCE</p>
         <p className={s.balanceValue}>₴ 24 000.00</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;

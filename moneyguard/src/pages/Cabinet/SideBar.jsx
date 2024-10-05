@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import s from "./SideBar.module.css";
 import { NavLink } from "react-router-dom";
 import Image from "../../assets/index";
 
 const SideBar = () => {
   const [page, setPage] = useState("home");
+
+
+ useEffect(() => {
+  try {
+    fetch('https://api.monobank.ua/bank/currency').then((data)=>{
+      return data.json()
+    }).then((res)=>{
+      console.log(res);
+      console.log(res.find((currency)=>{
+        return currency.currencyCodeA === 392
+      }));
+    })
+  } catch (error) {
+    
+  }
+ }, []);
   return (
     <div>
       <div className={s.links}>

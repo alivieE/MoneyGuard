@@ -7,18 +7,22 @@ const SideBar = () => {
   const [page, setPage] = useState("home");
 
   useEffect(() => {
-    try {
+  
       fetch('https://api.monobank.ua/bank/currency').then((data)=>{
         return data.json()
       }).then((res)=>{
-        console.log(res);
-        console.log(res.find((currency)=>{
-          return currency.currencyCodeA === 392
-        }));
-      })
-    } catch (error) {
-      
-    }
+console.log(res);
+if(res.errCode === 'TMR'){
+  console.log('too many requests');
+  return
+        }
+        // console.log(res.find((currency)=>{
+        //   return currency.currencyCodeA === 392
+        // }));
+      }).catch((error)=> {
+      console.log(error);
+     
+    })
   }, []);
 
   return (
@@ -53,6 +57,7 @@ const SideBar = () => {
           </div>
           Statistic
         </NavLink>
+
       </div>
       <div className={s.balance}>
         <p className={s.text}>YOUR BALANCE</p>

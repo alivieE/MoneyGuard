@@ -1,6 +1,7 @@
 .balanceValue{
     font-size: 30px;
     font-weight: 700;
+    color: white;
 }
 
 .text{
@@ -9,25 +10,49 @@
 }
 
 .balance{
-    background-color: #523B7E;
+    background-color: #563EAF;
+    padding-left: 55px;
+}
+
+.balanceCount{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin
+}
+
+.currency{
+    font-size: 30px;
+    font-weight: 300;
+    color: white;
 }
 
 .links{
     display: flex;
     flex-direction: column;
+    background-color: #523B7E;
+    gap: 15px;
+    padding: 20px;
 }
 
 .homeLink{
     display: flex;
+    
 }
 
 .link{
     display: flex;
     align-items: center;
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 18px;
+    gap: 15px;
 
+    
 }
 .homeImage,.statisticImage{
 
     display: block;
    
 }
+

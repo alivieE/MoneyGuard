@@ -27,7 +27,7 @@
 .userWrap {
   display: flex; 
   align-items: center; 
-  gap: 5px; 
+
   padding-right: 15px;
 }
 
@@ -40,8 +40,9 @@
 .exit {
   color: white; 
   opacity: 0.6; 
+  margin-right: 8px;
 }
 
 .vector{
-  margin-right: 8px;
+  margin-right: 12px;
 }

@@ -5,20 +5,21 @@
 }
 
 .text{
-    color: white; 
-    opacity: 0.6; 
+    color: rgba(255, 255, 255, 0.4);     
+    font-weight: 400;
 }
 
 .balance{
     background-color: #563EAF;
-    padding-left: 55px;
+    padding: 8px 0px 11px 56px;
+    
 }
 
 .balanceCount{
     display: flex;
     align-items: center;
     gap: 8px;
-
+    padding-top: 8px;
 }
 
 .currency{
@@ -54,5 +55,22 @@
 
     display: block;
    
+}
+
+.sideBar{
+    width: 480px;
+    background: linear-gradient(to left, #352d79e0, #2e2177);
+    display: block;
+}
+
+.table{
+    background-color: rgb(86, 62, 175);
+    width: 100%;
+    padding-right: 10px;
+    
+}
+
+.td{
+    text-align: center;
 }
 

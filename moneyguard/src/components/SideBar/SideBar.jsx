@@ -26,7 +26,7 @@ if(res.errCode === 'TMR'){
   }, []);
 
   return (
-    <div>
+    <aside className={s.sideBar}>
       <div className={s.links}>
         <div className={s.homeLink}>
           <NavLink
@@ -65,8 +65,25 @@ if(res.errCode === 'TMR'){
           <p className={s.currency}>₴</p>
           <p className={s.balanceValue}> 24 000.00</p>
           </div>
-      </div>
-    </div>
+      </div>    
+      <table className={s.table}>
+          <tr>
+            <th className={s.th}>Currency</th>
+            <th>Purchase</th>
+            <th>Sale</th>
+          </tr>
+          <tr>
+            <td className={s.td}>USD</td>
+            <td className={s.td}>27.55</td>
+            <td className={s.td}>27.65</td>
+          </tr>
+          <tr>
+            <td className={s.td}>EUR</td>
+            <td className={s.td}>30.00</td>
+            <td className={s.td}>30.10</td>
+          </tr>
+      </table>  
+    </aside>
   );
 };
 

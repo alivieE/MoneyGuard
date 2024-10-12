@@ -6,7 +6,11 @@
 
 .logo{
   width: 115px;
-  padding-top: 10px;
+
+}
+
+.logoWrap{
+    padding: 16px;
 }
 
 .img {
@@ -16,9 +20,8 @@
 
 .logoText{
   color: white;
-  font-size: 17px;
+  font-size: 20px;
   text-align: center;
-  margin-top: 1px;
 }
 
 .userWrap {
@@ -31,9 +34,14 @@
 .user{
   color: white; 
   opacity: 0.6; 
+  margin-right: 12px;
 }
 
 .exit {
   color: white; 
   opacity: 0.6; 
+}
+
+.vector{
+  margin-right: 8px;
 }

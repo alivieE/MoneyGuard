@@ -13,8 +13,8 @@ const Header = () => {
       </div>
       <div className={s.userWrap}>
           <p className={s.user}>Name</p>
-          <img className={s.exit} src={Image.exit} alt='exit' />
           <img className={s.vector} src={Image.vector} alt='vector' />
+          <img className={s.exit} src={Image.exit} alt='exit' />          
           <p className={s.exit}>Exit</p>
         </div>
     </header>

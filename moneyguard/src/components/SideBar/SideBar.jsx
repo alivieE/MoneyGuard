@@ -109,6 +109,10 @@ const SideBar = () => {
           <td className={s.tdEUR}>{currencies.euro.rateBuy}</td>
         </tr>
       </table>
+      <div className={s.waves}>        
+        <img className={s.orangeVector} src={Image.orangeVector}/>
+        <img src={Image.whiteVector}/>
+      </div>
     </aside>
   )
 }

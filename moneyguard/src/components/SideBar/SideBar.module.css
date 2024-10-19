@@ -92,3 +92,14 @@
     color: white;    
     font-weight: 600;
 }
+
+.waves{
+    position: relative;
+    padding-top: 60px;
+}
+
+.orangeVector{
+    position: absolute;
+    top:30px;
+    left: 0;
+}

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import Image from "../../assets/index";
 
 const SideBar = () => {
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState("home");  
 
   useEffect(() => {
   
@@ -14,11 +14,13 @@ const SideBar = () => {
 console.log(res);
 if(res.errCode === 'TMR'){
   console.log('too many requests');
+
+  
   return
         }
-        // console.log(res.find((currency)=>{
-        //   return currency.currencyCodeA === 392
-        // }));
+        console.log(res.find((currency)=>{
+          return currency.currencyCodeA === 840
+        }));
       }).catch((error)=> {
       console.log(error);
      

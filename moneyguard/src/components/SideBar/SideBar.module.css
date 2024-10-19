@@ -52,7 +52,7 @@
     
 }
 .homeImage,.statisticImage{
-
+    
     display: block;
    
 }
@@ -66,11 +66,24 @@
 .table{
     background-color: rgb(86, 62, 175);
     width: 100%;
-    padding-right: 10px;
-    
+    padding: 10px;
 }
 
 .td{
     text-align: center;
+    width: 33%;
+    padding: 24px;
+    color: white;
+    font-weight: 400;
 }
 
+.tr{
+    
+}
+
+.th{
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;    
+    font-weight: 600;
+}

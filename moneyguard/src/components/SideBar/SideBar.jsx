@@ -67,17 +67,17 @@ if(res.errCode === 'TMR'){
           </div>
       </div>    
       <table className={s.table}>
-          <tr>
+          <tr className={s.trTH}>
             <th className={s.th}>Currency</th>
-            <th>Purchase</th>
-            <th>Sale</th>
+            <th className={s.th}>Purchase</th>
+            <th className={s.th}>Sale</th>
           </tr>
-          <tr>
+          <tr className={s.tr}>
             <td className={s.td}>USD</td>
             <td className={s.td}>27.55</td>
             <td className={s.td}>27.65</td>
           </tr>
-          <tr>
+          <tr className={s.tr}>
             <td className={s.td}>EUR</td>
             <td className={s.td}>30.00</td>
             <td className={s.td}>30.10</td>

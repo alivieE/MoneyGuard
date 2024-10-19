@@ -100,22 +100,22 @@ const SideBar = () => {
         </tr>
         <tr className={s.tr}>
           <td className={s.tdUSD}>USD</td>
-          <td className={s.tdUSD}>{currencies.dollar.rateSell}</td>
-          <td className={s.tdUSD}>{currencies.dollar.rateBuy}</td>
+          <td className={s.tdUSD}>{currencies.dollar.rateBuy.toFixed(2)}</td>
+          <td className={s.tdUSD}>{currencies.dollar.rateSell.toFixed(2)}</td>
         </tr>
         <tr className={s.tr}>
           <td className={s.tdEUR}>EUR</td>
-          <td className={s.tdEUR}>{currencies.euro.rateSell}</td>
-          <td className={s.tdEUR}>{currencies.euro.rateBuy}</td>
+          <td className={s.tdEUR}>{currencies.euro.rateBuy.toFixed(2)}</td>
+          <td className={s.tdEUR}>{currencies.euro.rateSell.toFixed(2)}</td>
         </tr>
       </table>
       <div className={s.waves}>        
         <img className={s.orangeVector} src={Image.orangeVector}/>
         <img src={Image.whiteVector}/>
       </div>
-      <p className={s.countOne} >41.4852</p>
+      <p className={s.countOne} >{currencies.dollar.rateBuy.toFixed(2)}</p>
       <div className={s.pointOne}></div>
-      <p className={s.countTwo}>45.0349</p>
+      <p className={s.countTwo}>{currencies.euro.rateBuy.toFixed(2)}</p>
       <div className={s.pointTwo}></div>
     </aside>
   )

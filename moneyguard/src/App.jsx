@@ -1,7 +1,7 @@
 import './App.css';
 import Cabinet from './pages/Cabinet/Cabinet';
 import { Route,Routes } from 'react-router-dom';
-import Home from './components/Home'
+import Home from './components/Home/Home'
 import Statistic from './components/Statistic'
 
 function App() {

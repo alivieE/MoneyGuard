@@ -59,7 +59,7 @@
 
 .sideBar{
     width: 480px;
-    background: linear-gradient(to left, #352d79e0, #2e2177);
+    background-color: #3E1D95;
     display: block;
 }
 
@@ -102,4 +102,44 @@
     position: absolute;
     top:30px;
     left: 0;
+}
+
+.pointOne{
+    border: 1px solid #FF868D;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    position: absolute;
+    top:498px ;
+    left: 57px;
+    background-color: #3E1D95;
+}
+
+.pointTwo{
+    border: 1px solid #FF868D;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    position: absolute;
+    top:465px ;
+    left: 363px;
+    background-color: #3E1D95;
+}
+
+.countOne{
+    position: absolute;
+    top:480px ;
+    left: 40px;
+    color: #FF868D;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.countTwo{
+    position: absolute;
+    top: 445px;
+    left: 344px;
+    color: #FF868D;
+    font-size: 12px;
+    font-weight: 400
 }

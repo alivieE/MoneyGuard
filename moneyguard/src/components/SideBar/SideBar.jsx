@@ -113,7 +113,10 @@ const SideBar = () => {
         <img className={s.orangeVector} src={Image.orangeVector}/>
         <img src={Image.whiteVector}/>
       </div>
-      <div></div>
+      <p className={s.countOne} >41.4852</p>
+      <div className={s.pointOne}></div>
+      <p className={s.countTwo}>45.0349</p>
+      <div className={s.pointTwo}></div>
     </aside>
   )
 }

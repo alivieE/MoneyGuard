@@ -73,14 +73,14 @@ if(res.errCode === 'TMR'){
             <th className={s.th}>Sale</th>
           </tr>
           <tr className={s.tr}>
-            <td className={s.td}>USD</td>
-            <td className={s.td}>27.55</td>
-            <td className={s.td}>27.65</td>
+            <td className={s.tdUSD}>USD</td>
+            <td className={s.tdUSD}>27.55</td>
+            <td className={s.tdUSD}>27.65</td>
           </tr>
           <tr className={s.tr}>
-            <td className={s.td}>EUR</td>
-            <td className={s.td}>30.00</td>
-            <td className={s.td}>30.10</td>
+            <td className={s.tdEUR}>EUR</td>
+            <td className={s.tdEUR}>30.00</td>
+            <td className={s.tdEUR}>30.10</td>
           </tr>
       </table>  
     </aside>

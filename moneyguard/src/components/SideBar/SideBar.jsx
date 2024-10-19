@@ -113,6 +113,7 @@ const SideBar = () => {
         <img className={s.orangeVector} src={Image.orangeVector}/>
         <img src={Image.whiteVector}/>
       </div>
+      <div></div>
     </aside>
   )
 }

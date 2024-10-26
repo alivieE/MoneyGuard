@@ -110,13 +110,13 @@ const SideBar = () => {
         </tr>
       </table>
       <div className={s.waves}>        
-        <img className={s.orangeVector} src={Image.orangeVector}/>
-        <img src={Image.whiteVector}/>
-      </div>
-      <p className={s.countOne} >{currencies.dollar.rateBuy.toFixed(2)}</p>
-      <div className={s.pointOne}></div>
-      <p className={s.countTwo}>{currencies.euro.rateBuy.toFixed(2)}</p>
-      <div className={s.pointTwo}></div>
+          <img className={s.orangeVector} src={Image.orangeVector}/>
+          <img src={Image.whiteVector}/>
+          <p className={s.countOne} >{currencies.dollar.rateBuy.toFixed(2)}</p>
+          <div className={s.pointOne}></div>
+          <p className={s.countTwo}>{currencies.euro.rateBuy.toFixed(2)}</p>
+          <div className={s.pointTwo}></div>
+      </div>      
     </aside>
   )
 }

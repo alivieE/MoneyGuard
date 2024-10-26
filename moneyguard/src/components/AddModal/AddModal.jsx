@@ -52,19 +52,21 @@ setIsIncome(true)
                                 Income
                             </span>
                             <div className={s.toggleSwitch} onClick={toggleTransactionType}>
-                                <div className={`${s.toggleButton} ${isIncome ? s.income : s.expense}`}>{isIncome ? <img src={Image.plus}></img>:'-'}</div>
+                                <div className={`${s.toggleButton} ${isIncome ? s.income : s.expense}`}>{isIncome ? <img src={Image.plus}></img>:<img src={Image.minus}></img>}</div>
                             </div>
                             <span 
-                                className={`${s.toggleOption} ${!isIncome ? s.activeExpense : ''}`} 
+                                className={`${s.toggleOption} ${!isIncome ? s.activeExpense : ''}` } 
                                 onClick={toggleTransactionType}>
                                 Expense
                             </span>                            
                         </div>
                         <div className={s.CountAndDate}>
-                            <input onChange={handleAmount} value={amount} name='amount' type="number" placeholder="0.00" className={s.inputField} />
+                            <input required min={0} onChange={handleAmount} value={amount} name='amount' type="number" placeholder="0.00" className={s.inputField} />
                             <input required name='data' type="date" className={s.inputField} />
-                        </div>
+                    </div>
+                    <div className={s.coment}>
                         <input name='comment' type="text" placeholder="Comment" className={s.inputField} />
+                        </div>
                         <button type='submit' className={s.addButtonPrimary}>Add</button>
                         <button className={s.cancelButton} onClick={closeModal}>Cancel</button>
                     </form>

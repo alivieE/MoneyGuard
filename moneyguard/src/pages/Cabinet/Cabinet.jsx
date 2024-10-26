@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header'
 import SideBar from '../../components/SideBar/SideBar'
 import { Outlet } from 'react-router-dom'
 import s from './Cabinet.module.css'
+import AddModal from '../../components/AddModal/AddModal'
 
 
 const Cabinet = () => {
@@ -13,6 +14,7 @@ const Cabinet = () => {
         <SideBar></SideBar>
         <Outlet></Outlet>
       </div>
+      <AddModal></AddModal>
     </div>
   )
 }

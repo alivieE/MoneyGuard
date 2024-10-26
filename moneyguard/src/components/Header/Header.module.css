@@ -6,11 +6,10 @@
 
 .logo{
   width: 115px;
-
 }
 
 .logoWrap{
-    padding: 16px;
+    padding: 12px;
 }
 
 .img {
@@ -27,7 +26,6 @@
 .userWrap {
   display: flex; 
   align-items: center; 
-
   padding-right: 15px;
 }
 

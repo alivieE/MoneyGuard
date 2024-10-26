@@ -7,5 +7,6 @@ import statistic from './statistic.svg'
 import statisticWhite from './statisticWhite.svg'
 import orangeVector from './orangeVector.svg'
 import whiteVector from './whiteVector.svg'
+import plus from './plus.svg'
 
-export default {logo,exit,vector,home,statistic,homeWhite,statisticWhite,orangeVector,whiteVector}
+export default {logo,exit,vector,home,statistic,homeWhite,statisticWhite,orangeVector,whiteVector,plus}

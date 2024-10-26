@@ -61,6 +61,7 @@
     width: 480px;
     background-color: #3E1D95;
     display: block;
+    
 }
 
 .table{
@@ -110,7 +111,7 @@
     width: 9px;
     border-radius: 50%;
     position: absolute;
-    top:498px ;
+    top:570px ;
     left: 57px;
     background-color: #3E1D95;
 }
@@ -121,14 +122,14 @@
     width: 9px;
     border-radius: 50%;
     position: absolute;
-    top:465px ;
+    top:537px;
     left: 363px;
     background-color: #3E1D95;
 }
 
 .countOne{
     position: absolute;
-    top:480px ;
+    top:554px ;
     left: 46px;
     color: #FF868D;
     font-size: 12px;
@@ -137,7 +138,7 @@
 
 .countTwo{
     position: absolute;
-    top: 445px;
+    top: 522px;
     left: 350px;
     color: #FF868D;
     font-size: 12px;

@@ -1,0 +1,128 @@
+.addButton{
+    position: absolute;
+    top: 92%; left: 95%;
+    border-radius: 50px ;
+    background-color: rgb(255, 182, 39);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(to right, rgb(255, 182, 39), #A74CAC);
+}
+
+.plusScale{
+    transform: scale(1.5);
+    position:relative;    
+}
+
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+
+.modalContent {
+    background: linear-gradient(to right, #453783, #3A2E68);
+    border-radius: 16px;
+    padding: 40px;
+    width: 400px; 
+    color: #ffffff;
+    text-align: center;
+}
+
+.toggleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+}
+
+.toggleOption {
+    font-weight: bold;
+    font-size: 18px; 
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0 15px;
+    transition: color 0.3s;
+}
+
+.activeIncome {
+    color: #ffce51;
+}
+
+.activeExpense {
+    color: #ff4d4d;
+}
+
+.toggleSwitch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: #fff;
+    border-radius: 15px;
+    margin: 0 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.toggleButton {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.income {
+    background: #ffce51;
+    transform: translateX(2px);
+}
+
+.expense {
+    background: #ff4d4d;
+    transform: translateX(32px);
+}
+
+.inputField {
+    width: 100%;
+    padding: 12px; 
+    margin: 12px 0; 
+    border-radius: 10px;
+    border: none;
+    background: #4c426d;
+    color: #fff;
+    font-size: 18px; 
+}
+
+.addButtonPrimary {
+    width: 100%;
+    padding: 12px; 
+    background: linear-gradient(#ffce51, #9e5ae7);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px; 
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.cancelButton {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    color: #332e56;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+}

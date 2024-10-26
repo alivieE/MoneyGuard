@@ -152,6 +152,10 @@
 }
 .inputField[type="date"]::-webkit-calendar-picker-indicator {
 
-    background: none;
+    background: url('../../assets/calendar.svg') no-repeat;
 
+}
+
+.select{
+    display: flex;
 }

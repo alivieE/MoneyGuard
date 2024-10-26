@@ -8,12 +8,12 @@ const AddModal = () => {
 
     const openModal = () => {
         setIsModalOpen(true);
-        document.body.classList.add('blurred'); // Add blur class to body
+        document.body.classList.add('blurred');
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
-        document.body.classList.remove('blurred'); // Remove blur class from body
+        document.body.classList.remove('blurred');
     };
 
     const toggleTransactionType = () => {

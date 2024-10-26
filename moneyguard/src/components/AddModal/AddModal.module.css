@@ -150,3 +150,8 @@
 .coment{
     display: flex;
 }
+.inputField[type="date"]::-webkit-calendar-picker-indicator {
+
+    background: none;
+
+}

@@ -60,7 +60,7 @@ setIsIncome(true)
                                 Expense
                             </span>                            
                         </div>
-                        {!isIncome && <div lassName={s.select}><input className={s.inputField}></input></div>}
+                        {!isIncome && <div className={s.select}><input className={s.inputField}></input></div>}
                         <div className={s.CountAndDate}>
                             <input required min={0} onChange={handleAmount} value={amount} name='amount' type="number" placeholder="0.00" className={s.inputField} />
                             <input required name='data' type="date" className={s.inputField} />

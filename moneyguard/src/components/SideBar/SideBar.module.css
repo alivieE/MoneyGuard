@@ -111,7 +111,7 @@
     width: 9px;
     border-radius: 50%;
     position: absolute;
-    top:570px ;
+    top:566px ;
     left: 57px;
     background-color: #3E1D95;
 }
@@ -122,14 +122,14 @@
     width: 9px;
     border-radius: 50%;
     position: absolute;
-    top:537px;
+    top:533px;
     left: 363px;
     background-color: #3E1D95;
 }
 
 .countOne{
     position: absolute;
-    top:554px ;
+    top:550px ;
     left: 46px;
     color: #FF868D;
     font-size: 12px;
@@ -138,7 +138,7 @@
 
 .countTwo{
     position: absolute;
-    top: 522px;
+    top: 518px;
     left: 350px;
     color: #FF868D;
     font-size: 12px;

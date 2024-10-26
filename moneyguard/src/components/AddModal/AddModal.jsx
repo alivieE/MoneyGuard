@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import s from './AddModal.module.css';
 import Image from '../../assets/index';
 
-const AddModal = () => {
+const AddModal = ({setTransactions,transactions}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isIncome, setIsIncome] = useState(true);
-
+    const [amount, setAmount] = useState(0);
     const openModal = () => {
         setIsModalOpen(true);
         document.body.classList.add('blurred');
@@ -20,6 +20,21 @@ const AddModal = () => {
         setIsIncome(!isIncome);
     };
 
+    function handleAmount(e) {
+        setAmount(e.target.value)
+    }
+
+
+    function onSubmit(e) {
+      e.preventDefault()  
+      const type = isIncome ? 'income' : 'expense'
+setTransactions((prev)=>{
+    return [...prev, {type, amount: +amount}]
+})
+setAmount(0)
+setIsIncome(true)
+    }
+
     return (
         <div>
             <button className={s.addButton} onClick={openModal}>
@@ -28,7 +43,7 @@ const AddModal = () => {
                     
             {isModalOpen && (
                 <div className={s.modalOverlay}>
-                    <div className={s.modalContent}>
+                    <form onSubmit={onSubmit} className={s.modalContent}>
                         <h2>Add transaction</h2>
                         <div className={s.toggleContainer}>
                             <span 
@@ -37,7 +52,7 @@ const AddModal = () => {
                                 Income
                             </span>
                             <div className={s.toggleSwitch} onClick={toggleTransactionType}>
-                                <div className={`${s.toggleButton} ${isIncome ? s.income : s.expense}`}></div>
+                                <div className={`${s.toggleButton} ${isIncome ? s.income : s.expense}`}>{isIncome ? <img src={Image.plus}></img>:'-'}</div>
                             </div>
                             <span 
                                 className={`${s.toggleOption} ${!isIncome ? s.activeExpense : ''}`} 
@@ -46,13 +61,13 @@ const AddModal = () => {
                             </span>                            
                         </div>
                         <div className={s.CountAndDate}>
-                            <input type="number" placeholder="0.00" className={s.inputField} />
-                            <input type="date" className={s.inputField} />
+                            <input onChange={handleAmount} value={amount} name='amount' type="number" placeholder="0.00" className={s.inputField} />
+                            <input required name='data' type="date" className={s.inputField} />
                         </div>
-                        <input type="text" placeholder="Comment" className={s.inputField} />
-                        <button className={s.addButtonPrimary}>Add</button>
+                        <input name='comment' type="text" placeholder="Comment" className={s.inputField} />
+                        <button type='submit' className={s.addButtonPrimary}>Add</button>
                         <button className={s.cancelButton} onClick={closeModal}>Cancel</button>
-                    </div>
+                    </form>
                 </div>
             )}
         </div>

@@ -1,6 +1,7 @@
 .addButton{
     position: absolute;
-    top: 92%; left: 95%;
+    bottom: 40px;
+    right: 40px;
     border-radius: 50px ;
     background-color: rgb(255, 182, 39);
     width: 50px;
@@ -47,7 +48,7 @@
 .toggleOption {
     font-weight: bold;
     font-size: 18px; 
-    color: #ffffff;
+    color: #FFFFFF99;
     cursor: pointer;
     padding: 0 15px;
     transition: color 0.3s;
@@ -74,20 +75,30 @@
 }
 
 .toggleButton {
-    width: 26px;
-    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     transition: all 0.3s ease;
 }
 
 .income {
+    position: relative;
+    top: 0;
+    left: -10px;
     background: #ffce51;
     transform: translateX(2px);
+    box-shadow: 0px 6px 15px 0px #FFC72780;
+
 }
 
 .expense {
     background: #ff4d4d;
     transform: translateX(32px);
+    box-shadow: 0px 6px 15px 0px #FF868D80;
+    
 }
 
 .inputField {

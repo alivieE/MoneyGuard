@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import s from './AddModal.module.css';
 import Image from '../../assets/index';
 
-const AddModal = ({setTransactions,transactions}) => {
+const AddModal = ({ setTransactions, transactions }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isIncome, setIsIncome] = useState(true);
+    const [isIncome, setIsIncome] = useState(true);    
     const [amount, setAmount] = useState(0);
+    const [date, setDate] = useState('');
+    const [category, setCategory] = useState('');
+    const [comment, setComment] = useState('');
+
+    useEffect(() => {
+        const storedTransactions = JSON.parse(localStorage.getItem('transactions')) || [];
+        setTransactions(storedTransactions);
+    }, [setTransactions]);
+
     const openModal = () => {
         setIsModalOpen(true);
         document.body.classList.add('blurred');
@@ -14,26 +23,47 @@ const AddModal = ({setTransactions,transactions}) => {
     const closeModal = () => {
         setIsModalOpen(false);
         document.body.classList.remove('blurred');
+        resetForm();
     };
 
     const toggleTransactionType = () => {
         setIsIncome(!isIncome);
+        setCategory(''); 
     };
 
-    function handleAmount(e) {
-        setAmount(e.target.value)
-    }
+    const resetForm = () => {
+        setAmount(0);
+        setDate('');
+        setCategory('');
+        setComment('');
+        setIsIncome(true);
+    };
 
+    const handleAmount = (e) => setAmount(e.target.value);
+    const handleDate = (e) => setDate(e.target.value);
+    // const handleCategory = (e) => setCategory(e.target.value);
+    const handleComment = (e) => setComment(e.target.value);
 
-    function onSubmit(e) {
-      e.preventDefault()  
-      const type = isIncome ? 'income' : 'expense'
-setTransactions((prev)=>{
-    return [...prev, {type, amount: +amount}]
-})
-setAmount(0)
-setIsIncome(true)
-    }
+    const validateForm = () => amount > 0 && date && (isIncome || category);
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        if (!validateForm()) {
+            alert("Please fill in all required fields and ensure amount is greater than zero.");
+            return;
+        }
+
+        const type = isIncome ? 'income' : 'expense';
+        const newTransaction = { type, amount: +amount, date, category: isIncome ? '' : category, comment };
+
+        setTransactions((prev) => {
+            const updatedTransactions = [...prev, newTransaction];
+            localStorage.setItem('transactions', JSON.stringify(updatedTransactions));
+            return updatedTransactions;
+        });
+
+        closeModal();
+    };
 
     return (
         <div>
@@ -52,24 +82,38 @@ setIsIncome(true)
                                 Income
                             </span>
                             <div className={s.toggleSwitch} onClick={toggleTransactionType}>
-                                <div className={`${s.toggleButton} ${isIncome ? s.income : s.expense}`}>{isIncome ? <img src={Image.plus}></img>:<img src={Image.minus}></img>}</div>
+                                <div className={`${s.toggleButton} ${isIncome ? s.income : s.expense}`}>
+                                    {isIncome ? <img src={Image.plus} alt="Income" /> : <img src={Image.minus} alt="Expense" />}
+                                </div>
                             </div>
                             <span 
-                                className={`${s.toggleOption} ${!isIncome ? s.activeExpense : ''}` } 
+                                className={`${s.toggleOption} ${!isIncome ? s.activeExpense : ''}`} 
                                 onClick={toggleTransactionType}>
                                 Expense
                             </span>                            
                         </div>
-                        {!isIncome && <div className={s.select}><input className={s.inputField}></input></div>}
+
+                        {!isIncome && <div className={s.select}>
+                            <select className={s.inputField}>
+                                <option className = {s.selectTitle} value="">Select a category</option>
+                                <option className = {s.selectTitle} value="MainExpenses">Main expenses</option>
+                                <option className = {s.selectTitle} value="Products">Products</option>
+                            </select></div>}
                         <div className={s.CountAndDate}>
-                            <input required min={0} onChange={handleAmount} value={amount} name='amount' type="number" placeholder="0.00" className={s.inputField} />
-                            <input required name='data' type="date" className={s.inputField} />
-                    </div>
-                    <div className={s.coment}>
-                        <input name='comment' type="text" placeholder="Comment" className={s.inputField} />
+                            <input required min={0} onChange={handleAmount} value={amount} name="amount" type="number" placeholder="0.00" className={s.inputField}
+                            />
+                            <input required onChange={handleDate} value={date} name="data" type="date" className={s.inputField}
+                            />
                         </div>
-                        <button type='submit' className={s.addButtonPrimary}>Add</button>
-                        <button className={s.cancelButton} onClick={closeModal}>Cancel</button>
+
+                        <div className={s.coment}>
+                            <input
+                                onChange={handleComment} value={comment} name="comment" type="text" placeholder="Comment" className={s.inputField}
+                            />
+                        </div>
+
+                        <button type="submit" className={s.addButtonPrimary}>Add</button>
+                        <button type="button" className={s.cancelButton} onClick={closeModal}>Cancel</button>
                     </form>
                 </div>
             )}

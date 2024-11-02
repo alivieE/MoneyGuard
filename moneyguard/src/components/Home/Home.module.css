@@ -6,7 +6,6 @@
 
 .table{
     width: 100%;
-       
     
     color: white;
     
@@ -20,8 +19,20 @@
 
 .th{
     padding: 16px;
+    
 }
 
 .tr{
     border-radius: 10px;
+}
+
+.radiusLeft{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    overflow: hidden;
+}
+.radiusRight{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
 }

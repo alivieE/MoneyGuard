@@ -10,13 +10,13 @@ const [transactions, setTransactions] = useState([]);
       <table className={s.table}>
         <thead className={s.thead}>
           <tr className={s.tr}>
-            <th className={s.th}>Date</th>
+            <th className={`${s.th} ${s.radiusLeft}`}>Date</th>
             <th className={s.th}>Type</th>
             <th className={s.th}>Category</th>
             <th className={s.th}>Comment</th>
             <th className={s.th}>Sum</th>    
             <th className={s.th}></th>
-            <th className={s.th}></th>
+            <th className={`${s.th} ${s.radiusRight}`}></th>
           </tr>
         </thead>
         <tbody>

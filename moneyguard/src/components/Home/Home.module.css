@@ -1,49 +1,53 @@
-.thead{
-    color: white;
-    background-color: #3c2c5d; 
-    
+.tableContainer {
+    max-height: 100%; /* Set max height for scrolling */
+    overflow-y: auto; /* Enable vertical scroll */
+    width: 100%;
+    margin-left: 25px;
 }
 
-.table{
+.table {
     width: 100%;
     max-width: 1300px;
     color: white;
     text-align: left;
-    margin-left: 25px;
 }
 
-.Home{
-    background: linear-gradient(to bottom,#121177, #4b2067);
+.Home {
+    background: linear-gradient(to bottom, #121177, #4b2067);
     flex-grow: 1;
     padding: 46px;
 }
 
-.th{
-    padding: 16px;    
+.thead {
+    color: white;
+    background-color: #3c2c5d;
 }
 
-.td{
+.th {
     padding: 16px;
 }
 
+.td {
+    padding: 16px;
+}
 
-
-.trHead{
+.trHead {
     border-radius: 10px;
 }
 
-.radiusLeft{
+.radiusLeft {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     overflow: hidden;
 }
-.radiusRight{
+
+.radiusRight {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     overflow: hidden;
 }
 
-.btnDelete{
+.btnDelete {
     padding: 4px 12px;
     border-radius: 20px;
     color: white;

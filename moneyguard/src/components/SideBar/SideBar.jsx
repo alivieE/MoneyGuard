@@ -3,6 +3,7 @@ import s from './SideBar.module.css'
 import { NavLink } from 'react-router-dom'
 import Image from '../../assets/index'
 
+
 const SideBar = () => {
   const [page, setPage] = useState('home')
   const [currencies, setCurrencies] = useState(() => {

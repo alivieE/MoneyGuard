@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import s from './AddModal.module.css';
 import Image from '../../assets/index';
+import { v4 as uuidv4 } from 'uuid';
+uuidv4(); 
 
 const AddModal = ({ setTransactions, transactions }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,7 +56,7 @@ const AddModal = ({ setTransactions, transactions }) => {
         }
 
         const type = isIncome ? 'income' : 'expense';
-        const newTransaction = { type, amount: +amount, date, category: isIncome ? '' : category, comment };
+        const newTransaction = { type, amount: +amount, date, category: isIncome ? '' : category, comment, id:uuidv4()};
 
         setTransactions((prev) => {
             const updatedTransactions = [...prev, newTransaction];

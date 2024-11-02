@@ -1,0 +1,27 @@
+.thead{
+    color: white;
+    background-color: #3c2c5d; 
+    
+}
+
+.table{
+    width: 100%;
+       
+    
+    color: white;
+    
+}
+
+.Home{
+    background: linear-gradient(to bottom,#121177, #4b2067);
+    flex-grow: 1;
+    padding: 46px;
+}
+
+.th{
+    padding: 16px;
+}
+
+.tr{
+    border-radius: 10px;
+}

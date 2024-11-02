@@ -8,7 +8,8 @@ import statisticWhite from './statisticWhite.svg'
 import orangeVector from './orangeVector.svg'
 import whiteVector from './whiteVector.svg'
 import plus from './plus.svg'
-import  minus from './minus.svg'
+import minus from './minus.svg'
 import calendar from './calendar.svg'
+import pencil from './pencil.svg'
 
-export default {logo,exit,vector,home,statistic,homeWhite,statisticWhite,orangeVector,whiteVector,plus,minus,calendar}
+export default {logo,exit,vector,home,statistic,homeWhite,statisticWhite,orangeVector,whiteVector,plus,minus,calendar,pencil}

@@ -43,7 +43,7 @@ const AddModal = ({ setTransactions, transactions }) => {
 
     const handleAmount = (e) => setAmount(e.target.value);
     const handleDate = (e) => setDate(e.target.value);
-    // const handleCategory = (e) => setCategory(e.target.value);
+    const handleCategory = (e) => setCategory(e.target.value);
     const handleComment = (e) => setComment(e.target.value);
 
     const validateForm = () => amount > 0 && date && (isIncome || category);
@@ -96,7 +96,7 @@ const AddModal = ({ setTransactions, transactions }) => {
                         </div>
 
                         {!isIncome && <div className={s.select}>
-                            <select className={s.inputField}>
+                            <select className={s.inputField} value={category} onChange={handleCategory} required>
                                 <option className = {s.selectTitle} value="">Select a category</option>
                                 <option className = {s.selectTitle} value="MainExpenses">Main expenses</option>
                                 <option className = {s.selectTitle} value="Products">Products</option>

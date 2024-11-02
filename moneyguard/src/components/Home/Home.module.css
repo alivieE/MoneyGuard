@@ -6,9 +6,10 @@
 
 .table{
     width: 100%;
-    
+    max-width: 1300px;
     color: white;
-    
+    text-align: left;
+    margin-left: 25px;
 }
 
 .Home{
@@ -18,11 +19,16 @@
 }
 
 .th{
-    padding: 16px;
-    
+    padding: 16px;    
 }
 
-.tr{
+.td{
+    padding: 16px;
+}
+
+
+
+.trHead{
     border-radius: 10px;
 }
 
@@ -35,4 +41,13 @@
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     overflow: hidden;
+}
+
+.btnDelete{
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: white;
+    display: block;
+    background: linear-gradient(96.76deg, #FFC727 -16.42%, #9E40BA 97.04%, #7000FF 150.71%);
+    margin-left: 8px;
 }

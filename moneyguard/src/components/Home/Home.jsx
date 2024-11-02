@@ -1,15 +1,21 @@
 import React,{useState} from 'react'
 import AddModal from '../AddModal/AddModal';
 import s from './Home.module.css'
+import Image from '../../assets/index'
 const Home = () => {
 const [isOpen, setIsOpen] = useState(false);
-const [transactions, setTransactions] = useState([]);
+const [transactions, setTransactions] = useState(() =>{
+  return JSON.parse(localStorage.getItem('transactions')) || []
+
+  
+});
+
 
   return (
     <div className={s.Home}>
       <table className={s.table}>
         <thead className={s.thead}>
-          <tr className={s.tr}>
+          <tr className={s.trHead}>
             <th className={`${s.th} ${s.radiusLeft}`}>Date</th>
             <th className={s.th}>Type</th>
             <th className={s.th}>Category</th>
@@ -19,15 +25,19 @@ const [transactions, setTransactions] = useState([]);
             <th className={`${s.th} ${s.radiusRight}`}></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-        </tbody>
+        <tbody>  
+          {transactions.map((transaction) => {
+            return(<tr className={s.trAny}>
+              <td className={s.td}>{transaction.date}</td>
+              <td className={s.td}>{transaction.type === 'income' ? '+' : '-'}</td>
+              <td className={s.td}>{transaction.category || "Other"}</td>
+              <td className={s.td}>{transaction.comment}</td>
+              <td className={s.td}>{transaction.amount}</td>
+              <td><img src={Image.pencil}/></td>
+              <td><button className={s.btnDelete}>Delete</button></td>
+            </tr>)
+          })}
+        </tbody>       
       </table>
       
       <AddModal transactions={transactions} setTransactions={setTransactions}/>
@@ -36,4 +46,4 @@ const [transactions, setTransactions] = useState([]);
   )
 }
 
-export default Home
+export default Home;

@@ -9,6 +9,15 @@ const Home = () => {
     return JSON.parse(localStorage.getItem('transactions')) || [];
   });
 
+  const DeleteTransaction = (id) => {
+    const filteredArray = transactions.filter((transaction) => {
+      return transaction.id !== id
+    })
+    setTransactions(filteredArray)
+    localStorage.setItem('transactions', JSON.stringify(filteredArray))
+    
+  }
+
   return (
     <div className={s.Home}>
       <table className={s.table}>
@@ -32,7 +41,7 @@ const Home = () => {
               <td className={s.td}>{transaction.comment}</td>
               <td className={s.td}>{transaction.amount}</td>
               <td><img src={Image.pencil} alt="Edit" /></td>
-              <td><button className={s.btnDelete}>Delete</button></td>
+              <td><button className={s.btnDelete} type='button' onClick={() => {DeleteTransaction(transaction.id)}}>Delete</button></td>
             </tr>
           ))}
         </tbody>

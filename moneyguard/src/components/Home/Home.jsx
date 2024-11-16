@@ -4,10 +4,11 @@ import s from './Home.module.css';
 import Image from '../../assets/index';
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [transactions, setTransactions] = useState(() => {
     return JSON.parse(localStorage.getItem('transactions')) || [];
   });
+  const [editTransaction, setEditTransaction] = useState(null);
 
   const DeleteTransaction = (id) => {
     const filteredArray = transactions.filter((transaction) => {
@@ -17,6 +18,7 @@ const Home = () => {
     localStorage.setItem('transactions', JSON.stringify(filteredArray))
     
   }
+
 
   return (
     <div className={s.Home}>
@@ -40,13 +42,17 @@ const Home = () => {
               <td className={s.td}>{transaction.category || "Other"}</td>
               <td className={s.td}>{transaction.comment}</td>
               <td className={s.td}>{transaction.amount}</td>
-              <td><img src={Image.pencil} alt="Edit" /></td>
+              <td><img onClick={()=>{
+                console.log(1);
+                setEditTransaction(transaction)
+                setIsModalOpen(true)
+                }} src={Image.pencil} alt="Edit" /></td>
               <td><button className={s.btnDelete} type='button' onClick={() => {DeleteTransaction(transaction.id)}}>Delete</button></td>
             </tr>
           ))}
         </tbody>
       </table>
-      <AddModal transactions={transactions} setTransactions={setTransactions} />
+      <AddModal setEditTransaction={setEditTransaction} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} editTransaction={editTransaction}  transactions={transactions} setTransactions={setTransactions} />
     </div>
   );
 };

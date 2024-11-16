@@ -4,8 +4,8 @@ import Image from '../../assets/index';
 import { v4 as uuidv4 } from 'uuid';
 uuidv4(); 
 
-const AddModal = ({ setTransactions, transactions }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+const AddModal = ({setEditTransaction, setTransactions, transactions,setIsModalOpen,isModalOpen,editTransaction }) => {
+    
     const [isIncome, setIsIncome] = useState(true);    
     const [amount, setAmount] = useState(0);
     const [date, setDate] = useState('');
@@ -17,6 +17,19 @@ const AddModal = ({ setTransactions, transactions }) => {
         setTransactions(storedTransactions);
     }, [setTransactions]);
 
+    useEffect(() => {
+        console.log(editTransaction);
+        if(editTransaction){
+            console.log(editTransaction);
+            setIsIncome(editTransaction.type === 'income' ? true: false)
+            setAmount(editTransaction.amount)
+            setDate(editTransaction.date)
+            setCategory(editTransaction.category)
+            setComment(editTransaction.comment)
+        }
+
+    }, [isModalOpen]);
+    
     const openModal = () => {
         setIsModalOpen(true);
         document.body.classList.add('blurred');
@@ -25,6 +38,7 @@ const AddModal = ({ setTransactions, transactions }) => {
     const closeModal = () => {
         setIsModalOpen(false);
         document.body.classList.remove('blurred');
+        setEditTransaction(null)
         resetForm();
     };
 
@@ -57,12 +71,28 @@ const AddModal = ({ setTransactions, transactions }) => {
 
         const type = isIncome ? 'income' : 'expense';
         const newTransaction = { type, amount: +amount, date, category: isIncome ? '' : category, comment, id:uuidv4()};
+        if(editTransaction){
+            const EditedArray = transactions.map((currentTransaction)=>{
+                if(editTransaction.id === currentTransaction.id){
+                    return newTransaction
+                }
 
-        setTransactions((prev) => {
-            const updatedTransactions = [...prev, newTransaction];
-            localStorage.setItem('transactions', JSON.stringify(updatedTransactions));
-            return updatedTransactions;
-        });
+                return currentTransaction
+            })
+            setTransactions((prev) => {
+                
+                localStorage.setItem('transactions', JSON.stringify(EditedArray));
+                return EditedArray;
+            });
+
+        }else{
+            setTransactions((prev) => {
+                const updatedTransactions = [...prev, newTransaction];
+                localStorage.setItem('transactions', JSON.stringify(updatedTransactions));
+                return updatedTransactions;
+            });
+        }
+        
 
         closeModal();
     };
@@ -114,7 +144,7 @@ const AddModal = ({ setTransactions, transactions }) => {
                             />
                         </div>
 
-                        <button type="submit" className={s.addButtonPrimary}>Add</button>
+                        <button type="submit" className={s.addButtonPrimary}>{editTransaction ? 'Edit': 'Add'}</button>
                         <button type="button" className={s.cancelButton} onClick={closeModal}>Cancel</button>
                     </form>
                 </div>

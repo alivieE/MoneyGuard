@@ -104,7 +104,7 @@ const AddModal = ({setEditTransaction, setTransactions, transactions,setIsModalO
             </button>
                     
             {isModalOpen && (
-                <div className={s.modalOverlay}>
+                <div className={s.modalOverlay} style={{ animation:isModalOpen ? `fadeIn 1s`: 'none' }}>
                     <form onSubmit={onSubmit} className={s.modalContent}>
                         <h2>Add transaction</h2>
                         <div className={s.toggleContainer}>

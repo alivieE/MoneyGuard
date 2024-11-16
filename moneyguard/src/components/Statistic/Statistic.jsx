@@ -1,5 +1,6 @@
 import React from 'react'
 import { PieChart } from '@mui/x-charts/PieChart';
+import AddModal from '../AddModal/AddModal';
 
 const Statistic = () => {
   const desktopOS = [
@@ -22,21 +23,22 @@ const Statistic = () => {
 
       <div>
       <PieChart
-      height={600}
+      height={600}      
   series={[
     {
-      data: [{label:'ok',value:3},{label:'ol',value:8},],
+      data: [{label:'Products',value:3},{label:'Main expense',value:8},],
       
-      innerRadius: 30,
+      innerRadius: 60,
       outerRadius: 100,
-      paddingAngle: 5,
-      cornerRadius: 5,
-      startAngle: -45,
-      endAngle: 225,
+      paddingAngle: 0,
+      cornerRadius: 0,
+      startAngle: -136,
+      endAngle: 240,
       cx: 150,
-      cy: 150,
+      cy: 150,    
     }
   ]}
+  
 />
       </div>
     </div>

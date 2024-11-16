@@ -3,10 +3,17 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import AddModal from '../AddModal/AddModal';
 import { BarLabel } from '@mui/x-charts';
 
-const Statistic = () => {
+const Statistic = () => {  
 const transactions = JSON.parse(localStorage.getItem('transactions'))
     console.log(transactions);
+    
+const ExpenseTransactions = transactions.filter((transaction) => {
+  console.log(transaction.type)
+  return transaction.type == 'expense'
+  
+})
 
+console.log(ExpenseTransactions)
   return (
     <div style={{width:'100%',overflow:'hidden',position:'relative'}}>
       Statictic

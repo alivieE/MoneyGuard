@@ -23,9 +23,9 @@ const SideBar = () => {
     fetch('https://api.monobank.ua/bank/currency')
       .then((data) => data.json())
       .then((res) => {
-        console.log(res)
+      
         if (res.errCode === 'TMR') {
-          console.log('too many requests')
+          
           return
         }
 
@@ -47,7 +47,7 @@ const SideBar = () => {
         setCurrencies(updatedCurrencies)
       })
       .catch((error) => {
-        console.log(error)
+        
       })
   }, [])
 

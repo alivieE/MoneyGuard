@@ -1,32 +1,30 @@
 import React from 'react'
 import { PieChart } from '@mui/x-charts/PieChart';
 import AddModal from '../AddModal/AddModal';
+import { BarLabel } from '@mui/x-charts';
 
 const Statistic = () => {
-  const desktopOS = [
-    {
-      label: 'Windows',
-      value: 72.72,
-    },
-    {
-      label: 'OS X',
-      value: 16.38,
-    },
-    {
-      label: 'Linux',
-      value: 3.83,
-    },]
-    
+const transactions = JSON.parse(localStorage.getItem('transactions'))
+    console.log(transactions);
+
   return (
-    <div style={{width:'100%'}}>
+    <div style={{width:'100%',overflow:'hidden',position:'relative'}}>
       Statictic
 
-      <div>
+      <div style={{height:"100%",position:'absolute',top:'-30px',left:'0'}}>
       <PieChart
-      height={600}      
+      style={{width:'100%',height:'100%'}}
+      height={600} 
+      width={608}
+      options={{
+        dataLabels: {
+          enabled: false, // Disables data point labels
+        },
+      }} 
+
   series={[
     {
-      data: [{label:'Products',value:3},{label:'Main expense',value:8},],
+      data: [{label:'Products',value:3},{label:'Main expense',value:8,}],
       
       innerRadius: 60,
       outerRadius: 100,
@@ -36,6 +34,7 @@ const Statistic = () => {
       endAngle: 240,
       cx: 150,
       cy: 150,    
+      showLabels: false,
     }
   ]}
   

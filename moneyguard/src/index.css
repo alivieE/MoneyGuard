@@ -163,3 +163,11 @@ input::-webkit-inner-spin-button {
     opacity: 1;
   }
 }
+
+.MuiResponsiveChart-container{
+  width: auto;
+  height: auto;
+}
+.MuiChartsLegend-root.MuiChartsLegend-column.css-nsbw82-MuiChartsLegend-root{
+display: none;
+}

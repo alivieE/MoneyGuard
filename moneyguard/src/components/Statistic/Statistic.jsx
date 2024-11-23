@@ -12,7 +12,7 @@ const Statistic = () => {
     Car: 0,
     Selfcare: 0,
     Childcare: 0,
-    Householdproducts: 0,
+    Household: 0,
     Education: 0,
     Leisure: 0
   };
@@ -29,9 +29,11 @@ const Statistic = () => {
   });
 
   const valuesCategories = Object.keys(sumCategories).map((type) => {
+    
     return { label: type, value: sumCategories[type] };
   });
-
+  
+  console.log(valuesCategories)
   return (
     <div className={s.statistic}>
       <div>

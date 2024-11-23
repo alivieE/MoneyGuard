@@ -130,6 +130,12 @@ const AddModal = ({setEditTransaction, setTransactions, transactions,setIsModalO
                                 <option className = {s.selectTitle} value="">Select a category</option>
                                 <option className = {s.selectTitle} value="MainExpenses">Main expenses</option>
                                 <option className = {s.selectTitle} value="Products">Products</option>
+                                <option className = {s.selectTitle} value="Car">Car</option>
+                                <option className = {s.selectTitle} value="Selfcare">Self care</option>
+                                <option className = {s.selectTitle} value="Childcare">Child care</option>
+                                <option className = {s.selectTitle} value="Household">Household</option>
+                                <option className = {s.selectTitle} value="Education">Education</option>
+                                <option className = {s.selectTitle} value="Leisure	">Leisure	</option>
                             </select></div>}
                         <div className={s.CountAndDate}>
                             <input required min={0} onChange={handleAmount} value={amount} name="amount" type="number" placeholder="0.00" className={s.inputField}

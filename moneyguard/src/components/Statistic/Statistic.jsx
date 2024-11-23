@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { PieChart } from '@mui/x-charts/PieChart';
-import AddModal from '../AddModal/AddModal';
-import { BarLabel } from '@mui/x-charts';
-import s from './Statistic.module.css';
+import React, { useState } from "react";
+import { PieChart } from "@mui/x-charts/PieChart";
+import AddModal from "../AddModal/AddModal";
+import { BarLabel } from "@mui/x-charts";
+import s from "./Statistic.module.css";
 
-const Statistic = () => {  
-
+const Statistic = () => {
   const sumCategories = {
     MainExpenses: 0,
     Products: 0,
@@ -14,26 +13,28 @@ const Statistic = () => {
     Childcare: 0,
     Household: 0,
     Education: 0,
-    Leisure: 0
+    Leisure: 0,
+    Other: 0,
   };
-  
+
   const [transactions, setTransactions] = useState(() => {
-    return JSON.parse(localStorage.getItem('transactions')) || [];
+    return JSON.parse(localStorage.getItem("transactions")) || [];
   });
 
-  const ExpenseTransactions = transactions.filter((transaction) => {
-    return transaction.type === 'expense';
-  }).map((transaction) => {
-    sumCategories[transaction.category] = sumCategories[transaction.category] + transaction.amount;
-    return transaction;
-  });
+  const ExpenseTransactions = transactions
+    .filter((transaction) => {
+      return transaction.type === "expense";
+    })
+    .map((transaction) => {
+      sumCategories[transaction.category] =
+        sumCategories[transaction.category] + transaction.amount;
+      return transaction;
+    });
 
   const valuesCategories = Object.keys(sumCategories).map((type) => {
-    
     return { label: type, value: sumCategories[type] };
   });
-  
-  console.log(valuesCategories)
+
   return (
     <div className={s.statistic}>
       <div>
@@ -44,7 +45,7 @@ const Statistic = () => {
             dataLabels: {
               enabled: false,
             },
-          }} 
+          }}
           series={[
             {
               data: valuesCategories,
@@ -55,26 +56,26 @@ const Statistic = () => {
               startAngle: -136,
               endAngle: 240,
               cx: 250,
-              cy: 220,    
+              cy: 220,
               showLabels: false,
-            }
+            },
           ]}
         />
         <div></div>
       </div>
 
       <div className={s.list}>
-          <tbody>
-            {[...transactions].reverse().map((transaction) => (
-              <tr key={transaction.id} className={s.trAny}>
-                <td className={s.td}>{transaction.category}</td>
-                <td className={s.td}>{transaction.amount}</td>             
-              </tr>
-            ))}
-          </tbody>
+        <tbody>
+          {[...transactions].reverse().map((transaction) => (
+            <tr key={transaction.id} className={s.trAny}>
+              <td className={s.td}>{transaction.category}</td>
+              <td className={s.td}>{transaction.amount}</td>
+            </tr>
+          ))}
+        </tbody>
       </div>
     </div>
   );
-}
+};
 
 export default Statistic;

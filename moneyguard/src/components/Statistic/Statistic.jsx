@@ -66,7 +66,7 @@ const Statistic = () => {
 
       <div className={s.list}>
         <tbody>
-          {[...transactions].reverse().map((transaction) => (
+          {[...transactions].map((transaction) => (
             <tr key={transaction.id} className={s.trAny}>
               <td className={s.td}>{transaction.category}</td>
               <td className={s.td}>{transaction.amount}</td>

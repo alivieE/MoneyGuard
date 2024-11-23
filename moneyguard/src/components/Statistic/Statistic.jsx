@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
 import AddModal from '../AddModal/AddModal';
 import { BarLabel } from '@mui/x-charts';
@@ -6,7 +6,6 @@ import s from './Statistic.module.css';
 
 const Statistic = () => {  
 
-  const transactions = JSON.parse(localStorage.getItem('transactions'));
   const sumCategories = {
     MainExpenses: 0,
     Products: 0,
@@ -17,6 +16,10 @@ const Statistic = () => {
     Education: 0,
     Leisure: 0
   };
+  
+  const [transactions, setTransactions] = useState(() => {
+    return JSON.parse(localStorage.getItem('transactions')) || [];
+  });
 
   const ExpenseTransactions = transactions.filter((transaction) => {
     return transaction.type === 'expense';
@@ -29,10 +32,8 @@ const Statistic = () => {
     return { label: type, value: sumCategories[type] };
   });
 
-
-
   return (
-    <div>
+    <div className={s.statistic}>
       <div>
         <PieChart
           height={600}
@@ -51,24 +52,24 @@ const Statistic = () => {
               cornerRadius: 0,
               startAngle: -136,
               endAngle: 240,
-              cx: 150,
-              cy: 150,    
+              cx: 250,
+              cy: 220,    
               showLabels: false,
             }
           ]}
         />
+        <div></div>
       </div>
 
       <div className={s.list}>
-        <ul>
-          {Object.keys(sumCategories).map((category) => (
-            sumCategories[category] > 0 && (
-              <li key={category}>
-                <strong>{category}</strong> {sumCategories[category]} 
-              </li>
-            )
-          ))}
-        </ul>
+          <tbody>
+            {[...transactions].reverse().map((transaction) => (
+              <tr key={transaction.id} className={s.trAny}>
+                <td className={s.td}>{transaction.category}</td>
+                <td className={s.td}>{transaction.amount}</td>             
+              </tr>
+            ))}
+          </tbody>
       </div>
     </div>
   );

@@ -1,3 +1,10 @@
+.statistic{
+    background: linear-gradient(to bottom, #121177, #4b2067);
+    width: 100%;
+}
+
 .list{
-    background-color: red;
+    position: absolute;
+    top: 40%;
+    left: 70%;
 }

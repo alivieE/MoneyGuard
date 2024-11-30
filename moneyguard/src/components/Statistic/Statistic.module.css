@@ -1,10 +1,17 @@
-.statistic{
-    background: linear-gradient(to bottom, #121177, #4b2067);
-    width: 100%;
+.statistic {
+  background: linear-gradient(to bottom, #121177, #4b2067);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-.list{
-    position: absolute;
-    top: 40%;
-    left: 70%;
+.list {
+  position: absolute;
+  top: 97px;
+  right: 30px;
+}
+.chartWrap {
+  position: absolute;
+  top: -20px;
+  left: -80px;
 }

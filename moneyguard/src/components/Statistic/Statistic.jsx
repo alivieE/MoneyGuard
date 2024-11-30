@@ -37,7 +37,8 @@ const Statistic = () => {
 
   return (
     <div className={s.statistic}>
-      <div>
+      <h1>Statistics</h1>
+      <div className={s.chartWrap}>
         <PieChart
           height={600}
           width={608}

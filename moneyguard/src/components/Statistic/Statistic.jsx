@@ -17,6 +17,8 @@ const Statistic = () => {
     Other: 0,
   };
 
+const colors = ['#FED057', '#FFD8D0', '#FD9498', '#C5BAFF', '#6E78E8', '#4A56E2', '#81E1FF','#24CCA7', '#00AD84']
+
   const [transactions, setTransactions] = useState(() => {
     return JSON.parse(localStorage.getItem("transactions")) || [];
   });
@@ -37,9 +39,10 @@ const Statistic = () => {
 
   return (
     <div className={s.statistic}>
-      <h1>Statistics</h1>
+      <h1 className={s.Name}>Statistics</h1>
       <div className={s.chartWrap}>
         <PieChart
+        colors={colors}
           height={600}
           width={608}
           options={{
@@ -66,14 +69,22 @@ const Statistic = () => {
       </div>
 
       <div className={s.list}>
-        <tbody>
+        <div>
+        <ul>
           {[...transactions].map((transaction) => (
-            <tr key={transaction.id} className={s.trAny}>
-              <td className={s.td}>{transaction.category}</td>
-              <td className={s.td}>{transaction.amount}</td>
-            </tr>
-          ))}
-        </tbody>
+            
+              <li key={transaction.id} className={s.listLI}>
+                <div className={s.liWrap}>
+                  <div className={s.boxColor}>{}</div>
+                  <p>{transaction.category}</p>
+                </div>
+                <p>{transaction.amount}</p>
+                
+              </li>
+            
+          ))} 
+          </ul>
+        </div>
       </div>
     </div>
   );

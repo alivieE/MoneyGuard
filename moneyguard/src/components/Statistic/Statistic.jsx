@@ -17,6 +17,8 @@ const Statistic = () => {
     Other: 0,
   };
 
+
+
 const colors = ['#FED057', '#FFD8D0', '#FD9498', '#C5BAFF', '#6E78E8', '#4A56E2', '#81E1FF','#24CCA7', '#00AD84']
 
   const [transactions, setTransactions] = useState(() => {
@@ -33,9 +35,23 @@ const colors = ['#FED057', '#FFD8D0', '#FD9498', '#C5BAFF', '#6E78E8', '#4A56E2'
       return transaction;
     });
 
+
+    const IncomeTransactions = transactions
+    .filter((transaction) => {
+      return transaction.type === "income";
+    })
+    .map((transaction) => {
+      return transaction.amount;
+    });
+
+    
   const valuesCategories = Object.keys(sumCategories).map((type) => {
     return { label: type, value: sumCategories[type] };
   });
+
+  const totalExpenses = ExpenseTransactions.reduce((acc, transaction) => acc + transaction.amount, 0);
+  const totalIncome = IncomeTransactions.reduce((acc, amount) => acc + amount, 0);
+  
 
   return (
     <div className={s.statistic}>
@@ -71,7 +87,9 @@ const colors = ['#FED057', '#FFD8D0', '#FD9498', '#C5BAFF', '#6E78E8', '#4A56E2'
       <div className={s.list}>
         <div>
         <ul>
-          {[...transactions].map((transaction) => (
+          {[...transactions].filter((transaction) => {
+            return transaction.type != "income"
+          }).map((transaction) => (
             
               <li key={transaction.id} className={s.listLI}>
                 <div className={s.liWrap}>
@@ -80,12 +98,18 @@ const colors = ['#FED057', '#FFD8D0', '#FD9498', '#C5BAFF', '#6E78E8', '#4A56E2'
                 </div>
                 <p>{transaction.amount}</p>
                 
-              </li>
-            
+              </li>            
           ))} 
           </ul>
         </div>
       </div>
+      <div className={s.total}>
+        <div className={s.totalWrap}>
+          <p className={s.expense}>Expense: <p className={s.totalAmoutExpense}>{totalExpenses}</p></p>
+          <p className={s.income}>Income: <p className={s.totalAmoutIncome}>{totalIncome}</p></p>
+        </div>
+      </div>
+     
     </div>
   );
 };

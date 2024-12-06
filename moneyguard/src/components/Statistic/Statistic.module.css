@@ -10,6 +10,7 @@
   position: absolute;  
   right: 30px;
   width: 395px;
+  color: white;
 }
 .chartWrap {
   position: absolute;
@@ -40,3 +41,31 @@
   display: flex;
   gap: 16px
 }
+
+.total{ 
+  color: white;
+  position: absolute;
+  right: 30px;
+  top: 680px;
+  width: 365px;
+}
+
+.totalWrapp{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.expense{
+   color: rgb(255, 134, 141);
+   display: flex; 
+   gap: 235px;
+}
+
+.income{
+  color: rgb(255, 182, 39);
+  display: flex;
+  padding-top: 10px;
+  gap: 240px;
+}
+

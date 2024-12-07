@@ -3,6 +3,28 @@ import { PieChart } from "@mui/x-charts/PieChart";
 import s from "./Statistic.module.css";
 
 const Statistic = () => {
+  const currentDate = new Date();
+
+  const currentYear = currentDate.getFullYear();
+  const years = [];
+
+  for (let i = 0; i <= 9; i++) {
+    years.push(currentYear - i);
+  }
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   const sumCategories = {
     MainExpenses: 0,
     Products: 0,

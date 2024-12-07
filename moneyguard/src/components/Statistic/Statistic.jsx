@@ -2,29 +2,37 @@ import React, { useState } from "react";
 import { PieChart } from "@mui/x-charts/PieChart";
 import s from "./Statistic.module.css";
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 const Statistic = () => {
-  const currentDate = new Date();
 
+  const currentDate = new Date();
+  const [pickMonth, setpickMonth] = useState(months[currentDate.getMonth()]);
+  const [pickYear, setpickYear] = useState(currentDate.getFullYear());
   const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth();
   const years = [];
+  const handlemonth = (e) => setpickMonth(e.target.value);
+  const handleyear = (e) => setpickYear(e.target.value);
+
 
   for (let i = 0; i <= 9; i++) {
-    years.push(currentYear - i);
+    years.push( currentYear - i);
   }
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  
+
   const sumCategories = {
     MainExpenses: 0,
     Products: 0,
@@ -88,6 +96,9 @@ const Statistic = () => {
     0
   );
 
+
+
+
   return (
     <div className={s.statistic}>
       <h1 className={s.Name}>Statistics</h1>
@@ -118,9 +129,47 @@ const Statistic = () => {
         />
         <div></div>
       </div>
-
+      
+      
+      
       <div className={s.list}>
         <div>
+        <div>
+          <select
+            className={s.inputField}
+            onChange={handlemonth}   
+            value={pickMonth}        
+            >
+              <option className={s.selectTitle} value="">
+                  All
+              </option>
+              {months.map((month) => {
+                return ( 
+                  <option className={s.selectTitle} value={month}>
+                      {month}
+                  </option>
+                )
+              })}
+          </select>
+          <select
+            className={s.inputField}
+            onChange={handleyear}
+            value={pickYear}
+            >
+              <option className={s.selectTitle} value="">
+              All
+              </option>
+              {years.map((year) => {
+                return ( 
+                  <option className={s.selectTitle} value={year}>
+                      {year}
+                  </option>
+                )
+              })}
+          </select>
+        </div>                  
+                  
+
           <ul>
             {valuesCategories.map((transaction, index) => {
               if (transaction.value <= 0) {

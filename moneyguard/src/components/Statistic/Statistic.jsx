@@ -17,21 +17,21 @@ const months = [
   "December",
 ];
 const Statistic = () => {
-
   const currentDate = new Date();
   const [pickMonth, setpickMonth] = useState(months[currentDate.getMonth()]);
-  const [pickYear, setpickYear] = useState(currentDate.getFullYear());
+  const [pickYear, setpickYear] = useState(
+    currentDate.getFullYear().toString()
+  );
+  const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
   const currentYear = currentDate.getFullYear();
   const currentMonth = currentDate.getMonth();
   const years = [];
   const handlemonth = (e) => setpickMonth(e.target.value);
   const handleyear = (e) => setpickYear(e.target.value);
 
-
   for (let i = 0; i <= 9; i++) {
-    years.push( currentYear - i);
+    years.push(currentYear - i);
   }
-  
 
   const sumCategories = {
     MainExpenses: 0,
@@ -57,13 +57,17 @@ const Statistic = () => {
     "#00AD84",
   ];
 
-  const [transactions, setTransactions] = useState(() => {
-    return JSON.parse(localStorage.getItem("transactions")) || [];
-  });
-
   const ExpenseTransactions = transactions
     .filter((transaction) => {
       return transaction.type === "expense";
+    })
+    .filter((transaction) => {
+      const transDate = new Date(transaction.date);
+      const isMonth = pickMonth
+        ? months[transDate.getMonth()] === pickMonth
+        : true;
+      const isYear = pickYear ? transDate.getFullYear() == pickYear : true;
+      return isMonth && isYear;
     })
     .map((transaction) => {
       sumCategories[transaction.category] =
@@ -96,9 +100,6 @@ const Statistic = () => {
     0
   );
 
-
-
-
   return (
     <div className={s.statistic}>
       <h1 className={s.Name}>Statistics</h1>
@@ -129,46 +130,43 @@ const Statistic = () => {
         />
         <div></div>
       </div>
-      
-      
-      
+
       <div className={s.list}>
         <div>
-        <div>
-          <select
-            className={s.inputField}
-            onChange={handlemonth}   
-            value={pickMonth}        
+          <div>
+            <select
+              className={s.inputField}
+              onChange={handlemonth}
+              value={pickMonth}
             >
               <option className={s.selectTitle} value="">
-                  All
+                All
               </option>
               {months.map((month) => {
-                return ( 
+                return (
                   <option className={s.selectTitle} value={month}>
-                      {month}
+                    {month}
                   </option>
-                )
+                );
               })}
-          </select>
-          <select
-            className={s.inputField}
-            onChange={handleyear}
-            value={pickYear}
+            </select>
+            <select
+              className={s.inputField}
+              onChange={handleyear}
+              value={pickYear}
             >
               <option className={s.selectTitle} value="">
-              All
+                All
               </option>
               {years.map((year) => {
-                return ( 
+                return (
                   <option className={s.selectTitle} value={year}>
-                      {year}
+                    {year}
                   </option>
-                )
+                );
               })}
-          </select>
-        </div>                  
-                  
+            </select>
+          </div>
 
           <ul>
             {valuesCategories.map((transaction, index) => {

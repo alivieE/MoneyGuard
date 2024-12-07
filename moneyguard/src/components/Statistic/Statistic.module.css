@@ -7,7 +7,7 @@
 }
 
 .list {
-  position: absolute;  
+  position: absolute;
   right: 30px;
   width: 395px;
   color: white;
@@ -18,31 +18,30 @@
   left: -80px;
 }
 
-.Name{
+.Name {
   color: white;
   font-weight: 400;
   font-size: 30px;
-  
 }
 
-.boxColor{
+.boxColor {
   background-color: red;
   width: 24px;
 }
 
-.listLI{
+.listLI {
   display: flex;
   justify-content: space-between;
-  padding:16px 30px; 
-  border-bottom:1px solid rgba(255, 255, 255, 0.082);
+  padding: 16px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.082);
 }
 
-.liWrap{
+.liWrap {
   display: flex;
-  gap: 16px
+  gap: 16px;
 }
 
-.total{ 
+.total {
   color: white;
   position: absolute;
   right: 30px;
@@ -50,22 +49,23 @@
   width: 365px;
 }
 
-.totalWrapp{
+.totalWrapp {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.expense{
-   color: rgb(255, 134, 141);
-   display: flex; 
-   gap: 235px;
+.expense {
+  color: rgb(255, 134, 141);
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 30px;
 }
 
-.income{
+.income {
   color: rgb(255, 182, 39);
   display: flex;
   padding-top: 10px;
-  gap: 240px;
+  justify-content: space-between;
+  padding: 16px 30px;
 }
-
